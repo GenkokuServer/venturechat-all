@@ -10,30 +10,30 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class Buttons extends MineverseCommand {
-	private MineverseChat plugin;
+  private MineverseChat plugin;
 
-	public Buttons(String name) {
-		super(name);
-		this.plugin = MineverseChat.getInstance();
-	}
+  public Buttons(String name) {
+    super(name);
+    this.plugin = MineverseChat.getInstance();
+  }
 
-	@Override
-	public void execute(CommandSender sender, String command, String[] args) {
-		if(!(sender instanceof Player)) {
-			plugin.getServer().getConsoleSender().sendMessage(ChatColor.RED + "This command must be run by a player.");
-			return;
-		}
-		MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
-		if(mcp.getPlayer().hasPermission("venturechat.ignorebutton") || mcp.getPlayer().hasPermission("venturechat.ignorebutton")) {
-			if(mcp.getButtons()) {
-				mcp.setButtons(false);
-				mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer ignoring json buttons.");
-				return;
-			}			
-			mcp.setButtons(true);
-			mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now ignoring json buttons.");
-			return;
-		}
-		mcp.getPlayer().sendMessage(ChatColor.RED + "You do not have permission for this command.");
-	}
+  @Override
+  public void execute(CommandSender sender, String command, String[] args) {
+    if (!(sender instanceof Player)) {
+      plugin.getServer().getConsoleSender().sendMessage(ChatColor.RED + "This command must be run by a player.");
+      return;
+    }
+    MineverseChatPlayer mcp = MineverseChatAPI.getMineverseChatPlayer((Player) sender);
+    if (mcp.getPlayer().hasPermission("venturechat.ignorebutton") || mcp.getPlayer().hasPermission("venturechat.ignorebutton")) {
+      if (mcp.getButtons()) {
+        mcp.setButtons(false);
+        mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are no longer ignoring json buttons.");
+        return;
+      }
+      mcp.setButtons(true);
+      mcp.getPlayer().sendMessage(ChatColor.GOLD + "You are now ignoring json buttons.");
+      return;
+    }
+    mcp.getPlayer().sendMessage(ChatColor.RED + "You do not have permission for this command.");
+  }
 }

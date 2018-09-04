@@ -9,25 +9,25 @@ import mineverse.Aust1n46.chat.channel.ChatChannelInfo;
 import mineverse.Aust1n46.chat.command.MineverseCommand;
 
 public class Chlist extends MineverseCommand {
-	private ChatChannelInfo cc = MineverseChat.ccInfo;
+  private ChatChannelInfo cc = MineverseChat.ccInfo;
 
-	public Chlist(String name) {
-		super(name);
-	}
+  public Chlist(String name) {
+    super(name);
+  }
 
-	@Override
-	public void execute(CommandSender sender, String command, String[] args) {
-		sender.sendMessage(ChatColor.GOLD + "Channel List : Alias");
-		for(ChatChannel chname : cc.getChannelsInfo()) {
-			if(chname.hasPermission()) {
-				if(sender.hasPermission(chname.getPermission())) {
-					sender.sendMessage(ChatColor.valueOf(chname.getColor().toUpperCase()) + chname.getName() + " : " + chname.getAlias() + " - Permission Required");
-				}
-			}
-			else {
-				sender.sendMessage(ChatColor.valueOf(chname.getColor().toUpperCase()) + chname.getName() + " : " + chname.getAlias());
-			}
-		}
-		return;
-	}
+  @Override
+  public void execute(CommandSender sender, String command, String[] args) {
+    sender.sendMessage(ChatColor.GOLD + "Channel List : Alias");
+    for (ChatChannel chname : cc.getChannelsInfo()) {
+      if (chname.hasPermission()) {
+        if (sender.hasPermission(chname.getPermission())) {
+          sender.sendMessage(
+              ChatColor.valueOf(chname.getColor().toUpperCase()) + chname.getName() + " : " + chname.getAlias() + " - Permission Required");
+        }
+      } else {
+        sender.sendMessage(ChatColor.valueOf(chname.getColor().toUpperCase()) + chname.getName() + " : " + chname.getAlias());
+      }
+    }
+    return;
+  }
 }

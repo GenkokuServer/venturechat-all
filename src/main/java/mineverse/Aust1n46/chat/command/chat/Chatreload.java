@@ -9,28 +9,28 @@ import mineverse.Aust1n46.chat.api.MineverseChatPlayer;
 import mineverse.Aust1n46.chat.command.MineverseCommand;
 
 public class Chatreload extends MineverseCommand {
-	private MineverseChat plugin;
+  private MineverseChat plugin;
 
-	public Chatreload(String name) {
-		super(name);
-		this.plugin = MineverseChat.getInstance();
-	}
+  public Chatreload(String name) {
+    super(name);
+    this.plugin = MineverseChat.getInstance();
+  }
 
-	@Override
-	public void execute(CommandSender sender, String command, String[] args) {
-		if(sender.hasPermission("venturechat.reload")) {
-			plugin.reloadConfig();
-			Bukkit.getPluginManager().disablePlugin(plugin);
-			Bukkit.getPluginManager().enablePlugin(plugin);
-			plugin.getServer().getLogger().info("[VentureChat] Config reloaded");		
-			for(MineverseChatPlayer player : MineverseChat.players) {
-				if(player.isOnline() && player.getPlayer().hasPermission("venturechat.reload")) {
-					player.getPlayer().sendMessage(ChatColor.GOLD + "VentureChat config reloaded.");
-				}
-			}
-			return;
-		}
-		sender.sendMessage(ChatColor.RED + "You do not have permission for this command.");
-		return;
-	}
+  @Override
+  public void execute(CommandSender sender, String command, String[] args) {
+    if (sender.hasPermission("venturechat.reload")) {
+      plugin.reloadConfig();
+      Bukkit.getPluginManager().disablePlugin(plugin);
+      Bukkit.getPluginManager().enablePlugin(plugin);
+      plugin.getServer().getLogger().info("[VentureChat] Config reloaded");
+      for (MineverseChatPlayer player : MineverseChat.players) {
+        if (player.isOnline() && player.getPlayer().hasPermission("venturechat.reload")) {
+          player.getPlayer().sendMessage(ChatColor.GOLD + "VentureChat config reloaded.");
+        }
+      }
+      return;
+    }
+    sender.sendMessage(ChatColor.RED + "You do not have permission for this command.");
+    return;
+  }
 }

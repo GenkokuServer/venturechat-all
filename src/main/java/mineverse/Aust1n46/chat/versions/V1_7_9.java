@@ -9,18 +9,20 @@ import org.bukkit.command.CommandMap;
 //This class returns the CommandMap for Minecraft version 1.7.9
 @SuppressWarnings("unused")
 public class V1_7_9 {
-	/*public static CommandMap v1_7_9() {
-		CommandMap cmap = null;
-		try {
-			if(Bukkit.getServer() instanceof CraftServer) {
-				final Field f = CraftServer.class.getDeclaredField("commandMap");
-				f.setAccessible(true);
-				cmap = (CommandMap) f.get(Bukkit.getServer());
-			}
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		return cmap;
-	}*/
+  /*
+   * public static CommandMap v1_7_9() {
+   * CommandMap cmap = null;
+   * try {
+   * if(Bukkit.getServer() instanceof CraftServer) {
+   * final Field f = CraftServer.class.getDeclaredField("commandMap");
+   * f.setAccessible(true);
+   * cmap = (CommandMap) f.get(Bukkit.getServer());
+   * }
+   * }
+   * catch(Exception e) {
+   * e.printStackTrace();
+   * }
+   * return cmap;
+   * }
+   */
 }

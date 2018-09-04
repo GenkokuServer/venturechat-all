@@ -8,20 +8,20 @@ import org.bukkit.command.CommandSender;
 
 //This class is a standard command executor that is used to run the MineverseCommand's.
 public class MineverseCommandExecutor implements CommandExecutor {
-	private Map<String, MineverseCommand> commands;
+  private Map<String, MineverseCommand> commands;
 
-	public MineverseCommandExecutor(Map<String, MineverseCommand> commands) {
-		this.commands = commands;
-	}
+  public MineverseCommandExecutor(Map<String, MineverseCommand> commands) {
+    this.commands = commands;
+  }
 
-	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] parameters) {
-		for(String com : commands.keySet()) {
-			if(command.getName().equalsIgnoreCase(com)) {
-				commands.get(com).execute(sender, command.getName(), parameters);
-				return true;
-			}
-		}
-		return false;
-	}
+  @Override
+  public boolean onCommand(CommandSender sender, Command command, String label, String[] parameters) {
+    for (String com : commands.keySet()) {
+      if (command.getName().equalsIgnoreCase(com)) {
+        commands.get(com).execute(sender, command.getName(), parameters);
+        return true;
+      }
+    }
+    return false;
+  }
 }
