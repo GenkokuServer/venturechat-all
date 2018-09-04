@@ -1,10 +1,10 @@
-name: VentureChat
-version: 2.12.4
+name: ${project.name}
+version: ${project.version}
 main: mineverse.Aust1n46.chat.MineverseChat
 depend: [Vault, ProtocolLib, PlaceholderAPI]
 softdepend: [Towny, Factions, Heroes]
-Author: Aust1n46
-description: Chat with channels with many features!
+author: Aust1n46
+description: ${project.description}
 commands:
     mute:
         usage: /mute [playername] [channel]

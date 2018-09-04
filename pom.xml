@@ -8,6 +8,19 @@
   <version>2.12.4</version>
 
   <name>VentureChat</name>
+  <description>Chat with channels with many features!</description>
+  <developers>
+    <developer>
+      <id>Aust1n46</id>
+      <name>Aust1n46</name>
+    </developer>
+    <developer>
+      <id>stilllogic20</id>
+      <name>azure</name>
+      <organization>Genkoku Server</organization>
+      <organizationUrl>https://genkoku.city/</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <java.version.source>1.8</java.version.source>
@@ -24,6 +37,12 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -34,7 +53,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.1.1</version>
         <executions>
@@ -52,6 +70,10 @@
             </includes>
           </artifactSet>
         </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resource-plugin</artifactId>
+        <version>3.1.0</version>
       </plugin>
     </plugins>
   </build>
