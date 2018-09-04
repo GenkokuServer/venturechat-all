@@ -45,6 +45,13 @@
             </goals>
           </execution>
         </executions>
+        <configuration>
+          <artifactSet>
+            <includes>
+              <include>org.pircbotx:pircbotx</include>
+            </includes>
+          </artifactSet>
+        </configuration>
       </plugin>
     </plugins>
   </build>
